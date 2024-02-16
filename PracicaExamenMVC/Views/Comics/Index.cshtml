@@ -1,0 +1,46 @@
+﻿@model List<Comic>
+<h1>Comic Dependency Injection</h1>
+<p>
+    <a asp-controller="Comics" asp-action="Create">
+        Create New Comic
+    </a>
+   
+</p>
+<br />
+<p>
+    <a asp-controller="Comics" asp-action="InsertComicLambda">
+        Create con lambda
+    </a>
+</p>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>IdComic</th>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Descripción</th>
+            <th>Eliminar</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Comic com in Model)
+        {
+            <tr>
+                <td>@com.IdComic</td>
+                <td>@com.Nombre</td>
+                <td><img src="@com.Imagen" style="width:100px; height:100px"/></td>
+                <td>@com.Descripcion</td>
+                <td>
+                    <a asp-asp-controller="Comics" asp-action="Delete"
+                    asp-route-id="@com.IdComic"
+                    class="btn btn-outline-danger">
+                Eliminar
+                </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

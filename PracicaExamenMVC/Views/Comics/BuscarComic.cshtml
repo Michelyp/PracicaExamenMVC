@@ -1,0 +1,38 @@
+﻿@model Comic
+<h1>Buscador comic</h1>
+@{
+    List<string> comics = ViewData["NOMBRE"] as List<string>;
+}
+
+<form method="post">
+    <label>Seleccione un comic</label>
+    <select name="comic">
+        @foreach (string comic in comics)
+        {
+            <option value="@comic">@comic</option>
+        }
+    </select>
+    <button class="btn btn-outline-success">
+        Mostrar resumen
+    </button>
+</form>
+<h2 style="color:blue">
+    @ViewData["MENSAJE"]
+</h2>
+@if (Model != null)
+{
+    <ul class="list-group">
+        <li class="list-group-item">
+            Id comic: @Model.IdComic
+        </li>
+        <li class="list-group-item">
+            Nombre: @Model.Nombre
+        </li>
+        <li class="list-group-item">
+            Imagen: @Model.Imagen
+        </li>
+        <li class="list-group-item">
+            Descripcion: @Model.Descripcion
+        </li>
+    </ul>
+    }

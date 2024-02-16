@@ -1,0 +1,26 @@
+﻿
+@model Comic
+<h1>Esta seguro que lo quiere eliminar</h1>
+
+
+<form method="post">
+    <label>Nombre</label>
+    <input type="text" value="@Model.IdComic" class="form-control" readonly />
+    <label>Imagen</label>
+    <input type="text" value="@Model.Imagen" name="imagen" class="form-control" readonly />
+    <label>Descripcion</label>
+    <input type="text" value="@Model.Descripcion" name="descripcion" class="form-control" readonly />
+    <p>
+        <a asp-controller="Comics" asp-action="Delete"
+           asp-route-id="@Model.IdComic"
+           class="btn btn-outline-danger">
+           Eliminar
+        </a>
+    </p>
+</form> 
+<p>
+    <a asp-controller="Comics"
+       asp-action="Index">
+        No eliminar
+    </a>
+</p>
